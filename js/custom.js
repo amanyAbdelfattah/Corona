@@ -1,0 +1,565 @@
+$(document).ready(function(){
+    // Make Menu bar fixed While Scrolling
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 10) {
+            $('header .menu-bar').addClass('fixed');
+            $('.menu-bar').fadeIn();
+        } else {
+            $('header .menu-bar').removeClass('fixed');
+        }
+    });
+
+    $('.section-head').click(function(){
+        $('.section-head').removeClass('active');
+        $(this).addClass('active');
+    });
+    // Show Go to Top Icon 
+    $(window).scroll(function(){
+        if ($(window).scrollTop() >= 500)
+        {
+            $('.goTop-btn').fadeIn();
+        }
+        else
+        {
+            $('.goTop-btn').fadeOut();
+        }
+    });
+    // Hide Menu bar and Show menu icons
+    var menuIcon = $('header .menu-bar-container .icons')
+    $(menuIcon).click(function(){
+        $('nav ul').toggleClass('show-menu');
+        $('.overlay').fadeToggle();
+        $('.menu-icon').toggle();
+        $('.close-icon').toggle();
+    })
+    // Show / Hide Overlay 
+    $('.overlay').click(function() {
+        $('nav ul').removeClass('show-menu');
+        $('.overlay').fadeOut();
+        $('.menu-icon').show();
+        $('.close-icon').hide();
+    })
+    // Close Menu bar When clicking on Overlay or Close Icon
+    $('nav ul li').click(function() {
+        if (window.innerWidth < 980) {
+            $('nav ul').removeClass('show-menu');
+            $('.overlay').fadeOut();
+            $('.menu-icon').show();
+            $('.close-icon').hide();
+        }
+    })
+    // 
+    $(window).scroll(function() {
+        $('.section-head').each(function() {
+            if ($(window).scrollTop() > ($(this).offset().top)) {
+                var sectionId = $(this).attr('id');
+                $('header .menu-bar-container nav ul li a').removeClass('active');
+                $('header .menu-bar-container nav ul li a[class="' + sectionId + '"]').addClass('active')
+            } else if ($(window).scrollTop() < 680) {
+                $('header .menu-bar-container nav ul li a[class="home"]').addClass('active')
+            }
+        });
+    });
+
+    var leftContent = $('.faq .faq-content-container .left-faq-content ul li');
+    var content = $('.faq .faq-content-container .right-faq-content');
+    var rightContent = $('.faq .faq-content-container .right-faq-content > div');
+
+    $(leftContent).click(function(){
+        $(leftContent).removeClass('active');
+        $(this).addClass('active');
+        $(rightContent).hide();
+        $(headingContent).find(".content").hide();
+        $(headingContent).find(".content.first").show();
+        $(icon).find(".plus").show();
+        $(icon).find(".minus").hide();
+        $(icon).find(".minus.first").show();
+        $(icon).find(".plus.first").hide();
+        $(headingContent).removeClass('main-color');
+        $(headingContent).has(".first").addClass('main-color');
+
+        if($(this).hasClass('spreading'))
+        {
+            $(content).find(".spreading").fadeIn();
+        }
+        else if($(this).hasClass('advices'))
+        {
+            $(content).find(".advices").fadeIn();
+        }
+        else if($(this).hasClass('testing'))
+        {
+            $(content).find(".testing").fadeIn();
+        }
+        else if($(this).hasClass('outbreak'))
+        {
+            $(content).find(".outbreak").fadeIn();
+        }
+        else if($(this).hasClass("myth"))
+        {
+            $(content).find(".myth").fadeIn();
+        }
+        else
+        {
+            $(content).find(".disease").fadeIn();
+        }
+        })
+
+    var heading = $('.faq .faq-content-container .right-faq-content div ul li.heading');
+    var headingContent = $('.faq .faq-content-container .right-faq-content div ul');
+    var icon = $('.faq .faq-content-container .right-faq-content div ul li');
+    $(heading).click(function(){
+        if($(this).hasClass('first'))
+        {
+            $(headingContent).find(".first.content").slideToggle(600);
+            $(headingContent).has('.first').toggleClass('main-color');
+            $(icon).find(".plus.first").toggle();
+            $(icon).find(".minus.first").toggle();
+            if($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+            }
+            else($(".third-content").hasClass("collapse"))
+            {
+                $(".third.content").slideUp(500);
+                $(icon).find(".plus.third").show();
+                $(icon).find(".minus.third").hide();
+                $(".third").removeClass("main-color");
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass("main-color");
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('second'))
+        {
+            $(headingContent).find(".second.content").slideToggle(600);
+            $(headingContent).has('.second').toggleClass('main-color');
+            $(icon).find(".plus.second").toggle();
+            $(icon).find(".minus.second").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                $(".first.content").slideUp(500);
+                $(icon).find(".plus.first").show();
+                $(icon).find(".minus.first").hide();
+                $(".first").removeClass('main-color');
+            }
+
+            else($(".third.content").hasClass("collapse"))
+            {
+                $(".third.content").slideUp(500);
+                $(icon).find(".plus.third").show();
+                $(icon).find(".minus.third").hide();
+                $(".third").removeClass('main-color');
+
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass('main-color');
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+
+        }
+        else if($(this).hasClass('third'))
+        {
+            $(headingContent).find(".third.content").slideToggle(600);
+            $(headingContent).has('.third').toggleClass('main-color');
+            $(icon).find(".plus.third").toggle();
+            $(icon).find(".minus.third").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                    $(".first.content").slideUp(500);
+                    $(icon).find(".plus.first").show();
+                    $(icon).find(".minus.first").hide();
+                    $(".first").removeClass('main-color');
+            }
+            else($(".second.content").hasClass("collapse"))
+            {
+                    $(".second.content").slideUp(500);
+                    $(icon).find(".plus.second").show();
+                    $(icon).find(".minus.second").hide();
+                    $(".second").removeClass("main-color");
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass('main-color');
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('fourth'))
+        {
+            $(headingContent).find(".fourth.content").slideToggle(600);
+            $(headingContent).has('.fourth').toggleClass('main-color');
+            $(icon).find(".plus.fourth").toggle();
+            $(icon).find(".minus.fourth").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                    $(".first.content").slideUp(500);
+                    $(icon).find(".plus.first").show();
+                    $(icon).find(".minus.first").hide();
+                    $(".first").removeClass('main-color');
+            }
+            else($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+                if($(".third.content").hasClass("collapse"))
+                {
+                    $(".third.content").slideUp(500);
+                    $(icon).find(".plus.third").show();
+                    $(icon).find(".minus.third").hide();
+                    $(".third").removeClass('main-color');
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('fifth'))
+        {
+            $(headingContent).find(".fifth.content").slideToggle(600);
+            $(headingContent).has(".fifth").toggleClass('main-color');
+            $(icon).find(".plus.fifth").toggle();
+            $(icon).find(".minus.fifth").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                $(".first.content").slideUp(500);
+                $(icon).find(".plus.first").show();
+                $(icon).find(".minus.first").hide();
+                $(".first").removeClass('main-color');
+            }
+            else($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+                if($(".third.content").hasClass("collapse"))
+                {
+                    $(".third.content").slideUp(500);
+                    $(icon).find(".plus.third").show();
+                    $(icon).find(".minus.third").hide();
+                    $(".third").removeClass('main-color');
+                }
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass('main-color');
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('sixth'))
+        {
+            $(headingContent).find(".sixth.content").slideToggle(600);
+            $(headingContent).has(".sixth").toggleClass('main-color');
+            $(icon).find(".plus.sixth").toggle();
+            $(icon).find(".minus.sixth").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                $(".first.content").slideUp(500);
+                $(icon).find(".plus.first").show();
+                $(icon).find(".minus.first").hide();
+                $(".first").removeClass('main-color');
+            }
+            else($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+                if($(".third.content").hasClass("collapse"))
+                {
+                    $(".third.content").slideUp(500);
+                    $(icon).find(".plus.third").show();
+                    $(icon).find(".minus.third").hide();
+                    $(".third").removeClass('main-color');
+                }
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass('main-color');
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".seventh.content").hasClass("collapse"))
+                {
+                    $(".seventh.content").slideUp(500);
+                    $(icon).find(".plus.seventh").show();
+                    $(icon).find(".minus.seventh").hide();
+                    $(".seventh").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('seventh'))
+        {
+            $(headingContent).find(".seventh.content").slideToggle(600);
+            $(headingContent).has(".seventh").toggleClass('main-color');
+            $(icon).find(".plus.seventh").toggle();
+            $(icon).find(".minus.seventh").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                $(".first.content").slideUp(500);
+                $(icon).find(".plus.first").show();
+                $(icon).find(".minus.first").hide();
+                $(".first").removeClass('main-color');
+            }
+            else($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+                if($(".third-content").hasClass("collapse"))
+                {
+                    $(".third.content").slideUp(500);
+                    $(icon).find(".plus.third").show();
+                    $(icon).find(".minus.third").hide();
+                    $(".third").removeClass("main-color");
+                }
+                if($(".fourth.content").hasClass("collapse"))
+                {
+                    $(".fourth.content").slideUp(500);
+                    $(icon).find(".plus.fourth").show();
+                    $(icon).find(".minus.fourth").hide();
+                    $(".fourth").removeClass("main-color");
+                }
+                if($(".fifth.content").hasClass("collapse"))
+                {
+                    $(".fifth.content").slideUp(500);
+                    $(icon).find(".plus.fifth").show();
+                    $(icon).find(".minus.fifth").hide();
+                    $(".fifth").removeClass("main-color");
+                }
+                if($(".sixth.content").hasClass("collapse"))
+                {
+                    $(".sixth.content").slideUp(500);
+                    $(icon).find(".plus.sixth").show();
+                    $(icon).find(".minus.sixth").hide();
+                    $(".sixth").removeClass('main-color');
+                }
+                if($(".eighth.content").hasClass("collapse"))
+                {
+                    $(".eighth.content").slideUp(500);
+                    $(icon).find(".plus.eighth").show();
+                    $(icon).find(".minus.eighth").hide();
+                    $(".eighth").removeClass('main-color');
+                }
+            }
+        }
+        else if($(this).hasClass('eighth'))
+        {
+            $(headingContent).find(".eighth.content").slideToggle(600);
+            $(headingContent).has(".eighth").toggleClass('main-color');
+            $(icon).find(".plus.eighth").toggle();
+            $(icon).find(".minus.eighth").toggle();
+            if($(".first.content").hasClass("collapse"))
+            {
+                $(".first.content").slideUp(500);
+                $(icon).find(".plus.first").show();
+                $(icon).find(".minus.first").hide();
+                $(".first").removeClass('main-color');
+            }
+            if($(".second.content").hasClass("collapse"))
+            {
+                $(".second.content").slideUp(500);
+                $(icon).find(".plus.second").show();
+                $(icon).find(".minus.second").hide();
+                $(".second").removeClass("main-color");
+            }
+            if($(".third-content").hasClass("collapse"))
+            {
+                $(".third.content").slideUp(500);
+                $(icon).find(".plus.third").show();
+                $(icon).find(".minus.third").hide();
+                $(".third").removeClass("main-color");
+            }
+            if($(".fourth.content").hasClass("collapse"))
+            {
+                $(".fourth.content").slideUp(500);
+                $(icon).find(".plus.fourth").show();
+                $(icon).find(".minus.fourth").hide();
+                $(".fourth").removeClass("main-color");
+            }
+            if($(".fifth.content").hasClass("collapse"))
+            {
+                $(".fifth.content").slideUp(500);
+                $(icon).find(".plus.fifth").show();
+                $(icon).find(".minus.fifth").hide();
+                $(".fifth").removeClass("main-color");
+            }
+            if($(".sixth.content").hasClass("collapse"))
+            {
+                $(".sixth.content").slideUp(500);
+                $(icon).find(".plus.sixth").show();
+                $(icon).find(".minus.sixth").hide();
+                $(".sixth").removeClass('main-color');
+            }
+            if($(".seventh.content").hasClass("collapse"))
+            {
+                $(".seventh.content").slideUp(500);
+                $(icon).find(".plus.seventh").show();
+                $(icon).find(".minus.seventh").hide();
+                $(".seventh").removeClass('main-color');
+            }
+        }
+
+    })
+
+});
